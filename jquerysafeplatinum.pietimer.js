@@ -1,4 +1,13 @@
-
+/**
+ * jQuery PieTimer Plugin v0.1
+ * Authors: Kus (http://blakek.us/css3-pie-graph-timer-with-jquery/)
+ *          Connor Doyle (jQuery plugin)
+ *
+ * http://github.com/chikamichi/jquery.pietimer
+ *
+ * Licensed under the MIT licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 (function($) {
     var methods = {
         init: function(options) {
@@ -11,7 +20,9 @@
                 fill: false,
                 color: '#CCC'
             };
+
             state = $.extend(state, options);
+
             return this.each(function() {
                 var $this = $(this);
                 var data = $this.data('pietimer');
@@ -31,6 +42,7 @@
                 }
             });
         },
+
         stopWatch: function() {
             var data = $(this).data('pietimer');
             if (data) {
@@ -45,6 +57,7 @@
                 }
             }
         },
+
         drawTimer: function(percent) {
             $this = $(this);
             var data = $this.data('pietimer');
@@ -72,6 +85,7 @@
                 }
             }
         },
+
         start: function() {
             var data = $(this).data('pietimer');
             if (data) {
@@ -80,6 +94,7 @@
                 data.timer = setInterval("$this.pietimer('stopWatch')", 50);
             }
         },
+
         reset: function() {
             var data = $(this).data('pietimer');
             if (data) {
@@ -88,6 +103,7 @@
             }
         }
     };
+
     $.fn.pietimer = function(method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
